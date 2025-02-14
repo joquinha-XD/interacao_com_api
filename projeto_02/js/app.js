@@ -56,5 +56,17 @@ const showCharacter = (characters) => {
     `
     divCharacter.classList.add("character-box")
     characterConteiner.appendChild(divCharacter)
+    divCharacter.addEventListener("click", async ()=>{
+      characterDetails(character.id)
+    })
   })
+}
+
+const characterDetails = (id) => {
+  const criptId = encryptId(id)
+  window.location.href = `./pages/character.html?id=${criptId}`
+}
+
+const encryptId = (id) => {
+  return id.toString(36)
 }
